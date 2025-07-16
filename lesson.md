@@ -47,6 +47,8 @@ Now consider the word **"is"** in **Doc 1**. It appears in both documents, so it
 
 ## Method 2: Word Embeddings (e.g., Word2Vec, GloVe)
 
+https://projector.tensorflow.org/
+
 Word Embeddings are a modern approach where words are represented as dense, low-dimensional vectors. Unlike TF-IDF, embeddings capture a word's **semantic meaning** and its relationships with other words. 🧠
 
 ### **How it Works**

@@ -77,7 +77,8 @@ Compare the performance of your custom-trained Word2Vec model with a pre-trained
 
 ---
 
-## Part 3: Practical Application 🎯
+
+## BONUS : Part 3: Practical Application 🎯
 
 ### Task 3.1: Document Classification Preparation (20 points)
 
@@ -99,83 +100,3 @@ Create a mini document classification system:
 - Analysis report comparing TF-IDF vs Word2Vec effectiveness
 
 ---
-
-## Bonus Challenge 🏆 (Extra 10 points)
-
-### Advanced Text Processing
-
-Implement one of the following advanced features:
-
-**Option A: Text Preprocessing Pipeline**
-- Create a comprehensive text preprocessing pipeline that handles:
-  - Stop word removal
-  - Stemming or lemmatization
-  - N-gram generation
-- Compare TF-IDF results with and without preprocessing
-
-**Option B: Visualization**
-- Create visualizations of word embeddings using techniques like t-SNE or PCA
-- Show how similar words cluster together in 2D space
-
-**Option C: Real-world Application**
-- Build a simple search engine that uses TF-IDF to rank documents by relevance to a query
-- Include at least 50 documents and test with multiple queries
-
----
-
-## Submission Guidelines 📋
-
-### What to Submit:
-1. **Code files** (.py format) with clear comments
-2. **Results document** (PDF or Markdown) with all calculations, analyses, and screenshots
-3. **Dataset or data sources** used for experiments
-4. **README file** explaining how to run your code
-
-### Formatting Requirements:
-- Use clear variable names and add comments to your code
-- Include output examples in your results document
-- Explain your reasoning for design choices
-- Show intermediate steps for manual calculations
-
-### Evaluation Criteria:
-- **Correctness** (40%): Accurate calculations and working code
-- **Understanding** (30%): Clear explanations and analysis
-- **Implementation Quality** (20%): Clean, well-commented code
-- **Creativity** (10%): Interesting datasets or additional insights
-
----
-
-## Tips for Success 💡
-
-1. **Start early** - Some tasks require downloading large models
-2. **Test incrementally** - Make sure each part works before moving to the next
-3. **Document everything** - Include screenshots of your results
-4. **Use real data** - More interesting than toy examples
-5. **Ask questions** - If something is unclear, seek clarification
-
-### Common Pitfalls to Avoid:
-- Don't forget to handle edge cases (empty documents, unknown words)
-- Remember to normalize vectors when calculating similarity
-- Be careful with logarithms in IDF calculation (avoid log(0))
-- Check that your Word2Vec model actually learned meaningful relationships
-
----
-
-## Resources 📚
-
-### Helpful Documentation:
-- [scikit-learn TF-IDF Guide](https://scikit-learn.org/stable/modules/feature_extraction.html#text-feature-extraction)
-- [Gensim Word2Vec Tutorial](https://radimrehurek.com/gensim/models/word2vec.html)
-- [NumPy Documentation](https://numpy.org/doc/stable/)
-
-### Dataset Ideas:
-- [20 Newsgroups Dataset](http://qwone.com/~jason/20Newsgroups/)
-- [Movie Reviews Dataset](http://ai.stanford.edu/~amaas/data/sentiment/)
-- [Reuters News Dataset](https://archive.ics.uci.edu/ml/datasets/Reuters-21578+Text+Categorization+Collection)
-- News articles from RSS feeds
-- Product reviews from e-commerce sites
-
-**Due Date:** [To be specified by instructor]  
-**Total Points:** 100 + 10 bonus points
-
-Good luck with your text representation journey! 🚀 
