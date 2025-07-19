@@ -1,4 +1,3 @@
-# Task Script implementing homework tasks
 
 from typing import List, Tuple
 
@@ -6,10 +5,10 @@ from app import TFIDFCalculator
 
 
 class ExtendedTFIDFCalculator(TFIDFCalculator):
-    """TFIDFCalculator with extra convenience methods."""
+    #TFIDFCalculator with extra methods.
 
     def find_most_important_words(self, doc_index: int, top_n: int = 5) -> List[Tuple[str, float]]:
-        """Return top N words with highest TF-IDF scores for the document."""
+        #Return top N words with highest TF-IDF scores for the document.
         if doc_index >= len(self.documents):
             return []
         scores = {}
@@ -20,14 +19,14 @@ class ExtendedTFIDFCalculator(TFIDFCalculator):
         return sorted_terms[:top_n]
 
     def compare_documents(self, doc1_index: int, doc2_index: int, top_n: int = 5) -> List[str]:
-        """Find common important words between two documents."""
+        #Find common important words between two documents.
         words_doc1 = {word for word, _ in self.find_most_important_words(doc1_index, top_n)}
         words_doc2 = {word for word, _ in self.find_most_important_words(doc2_index, top_n)}
         return sorted(words_doc1 & words_doc2)
 
 
 def task_1_1():
-    """Manual TF-IDF calculations for provided movie reviews."""
+    #Manual TF-IDF calculations for provided movie reviews.
     corpus = [
         "This movie is absolutely fantastic and amazing",
         "The movie was terrible and boring",
@@ -38,13 +37,13 @@ def task_1_1():
     calc = ExtendedTFIDFCalculator()
     calc.add_documents(corpus)
 
-    # Calculate TF-IDF for specific terms with intermediate output
+    #Calculate TF-IDF for specific terms with intermediate output
     calc.calculate_tfidf(0, "amazing")
     calc.calculate_tfidf(1, "terrible")
 
 
 def task_1_2():
-    """Demonstrate new methods with a custom corpus."""
+    #Demonstrate new methods with a custom sentences/corpus.
     documents = [
         "Cats are wonderful companions",
         "Dogs are loyal and friendly animals",

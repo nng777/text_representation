@@ -2,7 +2,7 @@ import re
 from gensim.models import Word2Vec
 from typing import List, Iterable, Tuple
 
-# Minimal corpus (50 sentences) so the script is self contained
+#Minimal corpus (50 sentences), self contained
 CORPUS = [
     "The king sits on his ancient throne.",
     "The queen loves her people dearly.",
@@ -58,7 +58,7 @@ CORPUS = [
 
 
 def preprocess(corpus: Iterable[str]) -> List[List[str]]:
-    """Lowercase and tokenize each sentence."""
+    #Lowercase and tokenize each sentence.
     sentences = []
     for sentence in corpus:
         tokens = re.sub(r"[^\w\s]", "", sentence.lower()).split()
@@ -68,7 +68,7 @@ def preprocess(corpus: Iterable[str]) -> List[List[str]]:
 
 
 def train_model(sentences: List[List[str]], *, vector_size: int, window: int, min_count: int) -> Word2Vec:
-    """Train a Word2Vec model with the provided parameters."""
+    #Train a Word2Vec model with the provided parameters.
     return Word2Vec(
         sentences=sentences,
         vector_size=vector_size,
@@ -80,7 +80,7 @@ def train_model(sentences: List[List[str]], *, vector_size: int, window: int, mi
 
 
 def show_analogies(model: Word2Vec, analogies: Iterable[Tuple[str, str, str]]) -> None:
-    """Display analogy results for given tuples (a, b, c)."""
+    #Display analogy results for given tuples (a, b, c).
     for a, b, c in analogies:
         try:
             result = model.wv.most_similar(positive=[b, c], negative=[a], topn=1)[0]
@@ -90,7 +90,7 @@ def show_analogies(model: Word2Vec, analogies: Iterable[Tuple[str, str, str]]) -
 
 
 def show_clusters(model: Word2Vec, words: Iterable[str]) -> None:
-    """Print top five words similar to each word in *words*."""
+    #Print top five words similar to each word in *words*.
     for word in words:
         if word not in model.wv:
             print(f"'{word}' not in vocabulary")
@@ -103,7 +103,7 @@ def show_clusters(model: Word2Vec, words: Iterable[str]) -> None:
 def main() -> None:
     sentences = preprocess(CORPUS)
 
-    # Try a few different hyperparameter settings
+    #Try a few different hyperparameter settings
     configs = [
         {"vector_size": 50, "window": 3, "min_count": 1},
         {"vector_size": 100, "window": 5, "min_count": 1},

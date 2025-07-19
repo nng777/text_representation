@@ -19,22 +19,8 @@ os.environ.setdefault("LOKY_MAX_CPU_COUNT", "1")
 
 
 def fetch_documents(num_per_category: int = 10) -> Tuple[List[str], np.ndarray, List[str]]:
-    """Fetch articles from CNNIndonesia RSS feeds.
+    #Fetch articles from CNNIndonesia RSS feeds.
 
-    Parameters
-    ----------
-    num_per_category:
-        Number of articles to collect from each category.
-
-    Returns
-    -------
-    docs:
-        List of article texts composed of title and summary.
-    labels:
-        Array of integer labels corresponding to categories.
-    categories:
-        Names of the categories used.
-    """
 
     feeds = {
         "olahraga": "https://www.cnnindonesia.com/olahraga/rss",
@@ -55,14 +41,14 @@ def fetch_documents(num_per_category: int = 10) -> Tuple[List[str], np.ndarray, 
 
 
 def compute_tfidf_vectors(documents: List[str]) -> np.ndarray:
-    """Compute TF-IDF vectors for documents."""
+    #Compute TF-IDF vectors for documents.
     vectorizer = TfidfVectorizer()
     vectors = vectorizer.fit_transform(documents)
     return vectors.toarray()
 
 
 def compute_word2vec_vectors(documents: List[str]) -> np.ndarray:
-    """Train Word2Vec and obtain average document vectors."""
+    #Train Word2Vec and obtain average document vectors.
     tokenized = [re.sub(r"[^\w\s]", "", doc.lower()).split() for doc in documents]
     model = Word2Vec(sentences=tokenized, vector_size=50, window=5, min_count=1, workers=1, sg=1)
 
@@ -77,7 +63,7 @@ def compute_word2vec_vectors(documents: List[str]) -> np.ndarray:
 
 
 def similarity_stats(vectors: np.ndarray, labels: np.ndarray, method: str) -> Tuple[pd.Series, np.ndarray]:
-    """Calculate average similarities within and across categories."""
+    #Calculate average similarities within and across categories.
     sim_matrix = cosine_similarity(vectors)
     sports = labels == 0
     tech = labels == 1
@@ -100,8 +86,9 @@ def similarity_stats(vectors: np.ndarray, labels: np.ndarray, method: str) -> Tu
 
 
 def plot_tsne(vectors: np.ndarray, labels: np.ndarray, categories: List[str], filename: str) -> None:
-    """Save a 2D t-SNE plot of document vectors.
+    #Save a 2D t-SNE plot of document vectors.
 
+    """
     Parameters
     ----------
     vectors:
